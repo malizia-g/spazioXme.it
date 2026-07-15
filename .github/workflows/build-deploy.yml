@@ -35,6 +35,7 @@ jobs:
         run: npm run build
         env:
           ELEVENTY_RUN_MODE: build
+          SITE_BASE_PATH: /spazioXme.it
 
       - name: Pubblica dist/ sul branch deploy
         uses: JamesIves/github-pages-deploy-action@v4

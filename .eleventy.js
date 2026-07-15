@@ -7,6 +7,35 @@ const eleventyImage = require("@11ty/eleventy-img");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 
+const SITE_BASE_PATH_RAW = process.env.SITE_BASE_PATH || "";
+const SITE_BASE_PATH = SITE_BASE_PATH_RAW && SITE_BASE_PATH_RAW !== "/"
+  ? `/${SITE_BASE_PATH_RAW.replace(/^\/+|\/+$/g, "")}`
+  : "";
+
+function withBasePath(url) {
+  if (!SITE_BASE_PATH || !url || typeof url !== "string") return url;
+
+  if (
+    /^(?:[a-z]+:)?\/\//i.test(url) ||
+    url.startsWith("mailto:") ||
+    url.startsWith("tel:") ||
+    url.startsWith("#") ||
+    url.startsWith("data:")
+  ) {
+    return url;
+  }
+
+  if (url === SITE_BASE_PATH || url.startsWith(`${SITE_BASE_PATH}/`)) {
+    return url;
+  }
+
+  if (url.startsWith("/")) {
+    return `${SITE_BASE_PATH}${url}`;
+  }
+
+  return url;
+}
+
 const MESI_IT = [
   "gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno",
   "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre",
@@ -29,6 +58,10 @@ module.exports = function (eleventyConfig) {
   // Plugin
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginNavigation);
+
+  // Filtro per prefissare i path assoluti quando il sito è servito in sottocartella
+  // (es. GitHub Pages su /<repo>/).
+  eleventyConfig.addFilter("withBasePath", withBasePath);
 
   // Markdown con ancore nei titoli
   const md = markdownIt({ html: true, breaks: false, linkify: true }).use(
@@ -125,7 +158,35 @@ module.exports = function (eleventyConfig) {
   if (isProd) {
     eleventyConfig.addTransform("minificaHtml", async function (content) {
       if (!(this.page.outputPath || "").endsWith(".html")) return content;
-      return minifyHtml(content, {
+
+      const riscritto = SITE_BASE_PATH
+        ? content
+            // href/src/action/poster assoluti
+            .replace(
+              /(\s(?:href|src|action|poster)=["'])\/(?!\/)([^"']*)/gi,
+              (_, p1, p2) => {
+                if (p2 === SITE_BASE_PATH.slice(1) || p2.startsWith(`${SITE_BASE_PATH.slice(1)}/`)) {
+                  return `${p1}/${p2}`;
+                }
+                return `${p1}${SITE_BASE_PATH}/${p2}`;
+              }
+            )
+            // srcset assoluti
+            .replace(/(\ssrcset=["'])([^"']+)(["'])/gi, (_, p1, value, p3) => {
+              const nuovo = value
+                .split(",")
+                .map((token) => {
+                  const t = token.trim();
+                  if (!t.startsWith("/") || t.startsWith("//")) return t;
+                  if (t === SITE_BASE_PATH || t.startsWith(`${SITE_BASE_PATH}/`)) return t;
+                  return `${SITE_BASE_PATH}${t}`;
+                })
+                .join(", ");
+              return `${p1}${nuovo}${p3}`;
+            })
+        : content;
+
+      return minifyHtml(riscritto, {
         collapseWhitespace: true,
         removeComments: true,
         minifyCSS: true,
@@ -146,6 +207,14 @@ module.exports = function (eleventyConfig) {
         .replace(/\s*([{}:;,>])\s*/g, "$1")
         .replace(/;}/g, "}")
         .trim();
+
+      if (SITE_BASE_PATH) {
+        css = css
+          .replace(/url\("\/(?!\/)/g, (m) => (m.includes(`"${SITE_BASE_PATH}/`) ? m : `url("${SITE_BASE_PATH}/`))
+          .replace(/url\('\/(?!\/)/g, (m) => (m.includes(`'${SITE_BASE_PATH}/`) ? m : `url('${SITE_BASE_PATH}/`))
+          .replace(/url\(\/(?!\/)/g, `url(${SITE_BASE_PATH}/`);
+      }
+
       fs.writeFileSync(cssPath, css);
     }
   });
