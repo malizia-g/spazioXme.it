@@ -1,0 +1,98 @@
+[
+  {
+    "ordine": 1,
+    "slug": "yoga",
+    "titolo": "Yoga",
+    "sottotitolo": "Ritrova il respiro e la presenza",
+    "descrizione": "Un tempo per tornare al respiro e alla presenza. Attraverso posture, respiro e ascolto del corpo, lo yoga aiuta a sciogliere tensioni, ritrovare equilibrio e portare calma nella mente. Lezioni adatte a tutti i livelli, principianti compresi.",
+    "aChiRivolto": "Chi cerca equilibrio tra corpo e mente, flessibilità e una pausa dallo stress.",
+    "infoPratiche": {
+      "giorniOrari": "[giorni e orari da confermare]",
+      "durata": "[durata da confermare]",
+      "costo": "[costo da confermare]",
+      "iscrizione": "[come iscriversi da confermare]"
+    },
+    "icona": "respiro",
+    "immagine": "/assets/images/pratica-yoga.jpg"
+  },
+  {
+    "ordine": 2,
+    "slug": "meditazione-respirazione",
+    "titolo": "Meditazione & Respirazione",
+    "sottotitolo": "Fermarsi, ascoltarsi, tornare al centro",
+    "descrizione": "Pratiche di meditazione e di respiro consapevole per allenare l'attenzione, ridurre l'ansia e ritrovare uno spazio di quiete dentro di sé.",
+    "aChiRivolto": "Chi vuole imparare a rallentare, gestire lo stress e coltivare presenza.",
+    "infoPratiche": {
+      "giorniOrari": "[giorni e orari da confermare]",
+      "durata": "[durata da confermare]",
+      "costo": "[costo da confermare]",
+      "iscrizione": "[come iscriversi da confermare]"
+    },
+    "icona": "meditazione",
+    "immagine": "/assets/images/pratica-meditazione-respirazione.jpg"
+  },
+  {
+    "ordine": 3,
+    "slug": "pilates-movimento",
+    "titolo": "Pilates & Movimento consapevole",
+    "sottotitolo": "Un corpo più libero, forte e presente",
+    "descrizione": "Il movimento consapevole rinforza il centro del corpo, migliora la postura e riporta attenzione al modo in cui ci muoviamo, dentro e fuori dal tappetino.",
+    "aChiRivolto": "Chi vuole prendersi cura del corpo con dolcezza, migliorare postura e tono.",
+    "infoPratiche": {
+      "giorniOrari": "[giorni e orari da confermare]",
+      "durata": "[durata da confermare]",
+      "costo": "[costo da confermare]",
+      "iscrizione": "[come iscriversi da confermare]"
+    },
+    "icona": "movimento",
+    "immagine": "/assets/images/pratica-pilates-movimento.jpg"
+  },
+  {
+    "ordine": 4,
+    "slug": "respirazione-olotropica",
+    "titolo": "Respirazione olotropica",
+    "sottotitolo": "Un viaggio profondo attraverso il respiro",
+    "descrizione": "Una pratica intensa che, guidata in sicurezza, utilizza il respiro per accedere a stati profondi di consapevolezza, emozione e liberazione. Si svolge in sessioni dedicate e in un contesto protetto.",
+    "aChiRivolto": "Chi desidera un'esperienza interiore intensa di ascolto e trasformazione. Consigliato un colloquio preliminare.",
+    "infoPratiche": {
+      "giorniOrari": "[giorni e orari da confermare]",
+      "durata": "[durata da confermare]",
+      "costo": "[costo da confermare]",
+      "iscrizione": "[come iscriversi da confermare]"
+    },
+    "icona": "energia",
+    "immagine": "/assets/images/pratica-respirazione-olotropica.jpg"
+  },
+  {
+    "ordine": 5,
+    "slug": "counseling-gestalt",
+    "titolo": "Counseling Gestalt",
+    "sottotitolo": "Uno spazio di ascolto per capirti meglio",
+    "descrizione": "Il counseling gestaltico accompagna la persona nel presente, aiutandola a riconoscere emozioni, bisogni e modi di stare in relazione. Non è una terapia clinica, ma un sostegno alla consapevolezza e al cambiamento.",
+    "aChiRivolto": "Chi attraversa un momento di transizione, vuole conoscersi meglio o ritrovare direzione.",
+    "infoPratiche": {
+      "giorniOrari": "[giorni e orari da confermare]",
+      "durata": "[durata da confermare]",
+      "costo": "[costo da confermare]",
+      "iscrizione": "[come iscriversi da confermare]"
+    },
+    "icona": "ascolto",
+    "immagine": "/assets/images/pratica-counseling-gestalt.jpg"
+  },
+  {
+    "ordine": 6,
+    "slug": "cerchi",
+    "titolo": "I Cerchi",
+    "sottotitolo": "Gruppi per condividere ed esplorare insieme",
+    "descrizione": "Spazi di parola e di ascolto dedicati a temi ed esperienze condivise — come il Cerchio degli uomini — dove ci si incontra in un ambiente sicuro e senza giudizio.",
+    "aChiRivolto": "Chi cerca condivisione autentica e la forza del gruppo.",
+    "infoPratiche": {
+      "giorniOrari": "[giorni e orari da confermare]",
+      "durata": "[durata da confermare]",
+      "costo": "[costo da confermare]",
+      "iscrizione": "[come iscriversi da confermare]"
+    },
+    "icona": "gruppo",
+    "immagine": "/assets/images/pratica-cerchi.jpg"
+  }
+]

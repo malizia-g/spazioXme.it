@@ -1,0 +1,110 @@
+---
+layout: layouts/page.njk
+title: "Contatti"
+description: "Scrivici per una domanda o per prenotare un primo incontro a SpazioxMe, Segesta - Milano. Il primo passo è sempre una chiacchierata, senza impegno."
+breadcrumb:
+  - text: Home
+    url: /
+  - text: Contatti
+    url: /contatti/
+---
+<section class="sezione container">
+  <div class="sezione__intestazione">
+    <h1>Contatti</h1>
+    <p>
+      Hai una domanda, una curiosità o vuoi prenotare un primo incontro? Scrivici: rispondiamo
+      con piacere. Il primo passo è sempre una chiacchierata, senza impegno.
+    </p>
+  </div>
+
+  <div class="griglia griglia--2" style="align-items:start">
+    <div>
+      <h2>Dove siamo</h2>
+      <address style="font-style:normal;line-height:1.9">
+        <strong>[via e numero]</strong>, Segesta – Milano<br>
+        Email: <a href="mailto:{{ site.email }}">{{ site.email }}</a><br>
+        Telefono / WhatsApp: {{ site.phone }}<br>
+        Instagram: <a href="{{ site.social.instagram }}" rel="noopener" target="_blank">@spazioxme</a><br>
+        Orari: [orari da confermare]
+      </address>
+    </div>
+
+    <div>
+      <h2>Scrivici</h2>
+      <form
+        class="form"
+        name="contatti"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="/grazie/"
+      >
+        <input type="hidden" name="form-name" value="contatti">
+        <p class="honeypot" aria-hidden="true">
+          <label>Non compilare questo campo: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+        </p>
+
+        <div class="campo">
+          <label for="nome">Nome e cognome</label>
+          <input type="text" id="nome" name="nome" required autocomplete="name">
+        </div>
+        <div class="campo">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+        <div class="campo">
+          <label for="telefono">Telefono <span style="font-weight:400">(facoltativo)</span></label>
+          <input type="tel" id="telefono" name="telefono" autocomplete="tel">
+        </div>
+        <div class="campo">
+          <label for="interesse">Sono interessato a…</label>
+          <select id="interesse" name="interesse">
+            <option value="">Scegli un'opzione</option>
+            <option>Yoga</option>
+            <option>Meditazione</option>
+            <option>Pilates</option>
+            <option>Respirazione olotropica</option>
+            <option>Counseling</option>
+            <option>Cerchi</option>
+            <option>Altro</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="messaggio">Messaggio</label>
+          <textarea id="messaggio" name="messaggio" required></textarea>
+        </div>
+        <div class="campo campo-consenso">
+          <input type="checkbox" id="consenso" name="consenso-privacy" required>
+          <label for="consenso">
+            Ho letto la <a href="/privacy/">Privacy Policy</a> e acconsento al trattamento dei
+            miei dati per rispondere alla mia richiesta.
+          </label>
+        </div>
+        <div>
+          <button type="submit" class="bottone bottone--primario">Invia il messaggio</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="sezione sezione--alt">
+  <div class="container">
+    <div class="sezione__intestazione">
+      <h2>Come raggiungerci</h2>
+      <p>Siamo in zona Segesta, servita dalla metro M1. La mappa si carica solo dopo il tuo consenso ai cookie.</p>
+    </div>
+
+    <div
+      class="mappa-placeholder"
+      id="mappa"
+      data-mappa-src="https://www.openstreetmap.org/export/embed.html?bbox=9.129%2C45.470%2C9.150%2C45.481&layer=mapnik&marker={{ site.geo.latitude }}%2C{{ site.geo.longitude }}"
+    >
+      <p>
+        La mappa interattiva è disattivata finché non accetti i cookie di terze parti.
+        Puoi comunque <a href="https://www.openstreetmap.org/?mlat={{ site.geo.latitude }}&mlon={{ site.geo.longitude }}#map=16/{{ site.geo.latitude }}/{{ site.geo.longitude }}" rel="noopener" target="_blank">aprire la mappa in una nuova scheda</a>.
+      </p>
+      <button type="button" class="bottone bottone--primario mt-lg" id="carica-mappa">Carica la mappa</button>
+    </div>
+  </div>
+</section>

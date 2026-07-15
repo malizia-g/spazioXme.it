@@ -1,0 +1,57 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: pratiche
+  size: 1
+  alias: pratica
+  addAllPagesToCollections: true
+permalink: "/pratiche/{{ pratica.slug }}/"
+eleventyComputed:
+  title: "{{ pratica.titolo }}"
+  description: "{{ pratica.descrizione | truncate(155) }}"
+  image: "{{ pratica.immagine }}"
+  imageAlt: "{{ pratica.titolo }} a SpazioxMe, Segesta - Milano"
+  breadcrumb:
+    - text: Home
+      url: /
+    - text: Pratiche & Percorsi
+      url: /pratiche/
+    - text: "{{ pratica.titolo }}"
+      url: "/pratiche/{{ pratica.slug }}/"
+---
+{% include "partials/breadcrumbs.njk" %}
+
+<article class="sezione container">
+  <div class="sezione__intestazione">
+    <p class="card-pratica__sottotitolo">{{ pratica.sottotitolo }}</p>
+    <h1>{{ pratica.titolo }}</h1>
+  </div>
+
+  <div class="griglia griglia--2" style="align-items:start">
+    <div>
+      <div class="articolo__corpo" style="margin-inline:0">
+        <p style="font-size:var(--fs-md)">{{ pratica.descrizione }}</p>
+
+        <h2>A chi è rivolto</h2>
+        <p>{{ pratica.aChiRivolto }}</p>
+
+        <h2>Info pratiche</h2>
+        <ul style="list-style:revert;padding-left:1.5rem">
+          <li><strong>Giorni e orari:</strong> {{ pratica.infoPratiche.giorniOrari }}</li>
+          <li><strong>Durata:</strong> {{ pratica.infoPratiche.durata }}</li>
+          <li><strong>Costo:</strong> {{ pratica.infoPratiche.costo }}</li>
+          <li><strong>Come iscriversi:</strong> {{ pratica.infoPratiche.iscrizione }}</li>
+        </ul>
+
+        <div class="gruppo-bottoni mt-lg">
+          <a class="bottone bottone--primario" href="/contatti/">Prenota un primo incontro</a>
+          <a class="bottone bottone--secondario" href="/pratiche/">Tutte le pratiche</a>
+        </div>
+      </div>
+    </div>
+    <div class="pratica__media">
+      {% immagine pratica.immagine, pratica.titolo + " a SpazioxMe", "(min-width: 860px) 34rem, 100vw", [480, 800, 1200] %}
+      <span class="nota-stock">Foto stock temporanea, in attesa delle foto reali.</span>
+    </div>
+  </div>
+</article>

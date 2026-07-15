@@ -1,0 +1,27 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.name }} — Diario</title>
+  <subtitle>{{ site.description }}</subtitle>
+  <link href="{{ site.url }}/feed.xml" rel="self"/>
+  <link href="{{ site.url }}/"/>
+  <updated>{{ collections.diario | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+  <id>{{ site.url }}/</id>
+  <author>
+    <name>{{ site.name }}</name>
+  </author>
+  {%- for post in collections.diario -%}
+  {% set assoluto %}{{ post.url | htmlBaseUrl(site.url) }}{% endset %}
+  <entry>
+    <title>{{ post.data.title }}</title>
+    <link href="{{ assoluto }}"/>
+    <updated>{{ post.date | dateToRfc3339 }}</updated>
+    <id>{{ assoluto }}</id>
+    <summary>{{ post.data.description }}</summary>
+    <content type="html">{{ post.templateContent | htmlToAbsoluteUrls(assoluto) }}</content>
+  </entry>
+  {%- endfor -%}
+</feed>

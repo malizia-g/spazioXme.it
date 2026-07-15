@@ -1,0 +1,42 @@
+---
+layout: layouts/page.njk
+title: "Diario"
+description: "Pensieri, pratiche e racconti dallo SpazioxMe: sul corpo, sul respiro, sulle relazioni e sul prendersi cura di sé."
+breadcrumb:
+  - text: Home
+    url: /
+  - text: Diario
+    url: /diario/
+---
+<section class="sezione container">
+  <div class="sezione__intestazione">
+    <h1>Diario</h1>
+    <p>
+      Pensieri, pratiche e racconti dallo SpazioxMe. Un posto dove condividiamo ciò che
+      impariamo lungo la strada: sul corpo, sul respiro, sulle relazioni e sul prendersi cura
+      di sé. Buona lettura.
+    </p>
+  </div>
+
+  {% if collections.diario.length %}
+  <div class="griglia griglia--3">
+    {% for articolo in collections.diario %}
+    <article class="card-articolo">
+      {% if articolo.data.image %}
+      <div class="card-articolo__immagine">
+        {% immagine articolo.data.image, articolo.data.imageAlt or "", "(min-width: 860px) 22rem, 100vw", [400, 800] %}
+      </div>
+      {% endif %}
+      <div class="card-articolo__corpo">
+        <time datetime="{{ articolo.date | dataIso }}">{{ articolo.date | dataIt }}</time>
+        <h2 style="font-size:var(--fs-md);margin-block:.35rem .5rem"><a href="{{ articolo.url }}">{{ articolo.data.title }}</a></h2>
+        <p>{{ articolo.data.description }}</p>
+        <p class="card-articolo__link" style="margin-top:auto;padding-top:1rem"><a href="{{ articolo.url }}">Leggi →</a></p>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p>Presto i primi articoli. Torna a trovarci!</p>
+  {% endif %}
+</section>

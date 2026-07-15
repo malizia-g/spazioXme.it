@@ -1,0 +1,36 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer__griglia">
+      <div>
+        <h2>SpazioxMe</h2>
+        <p>{{ site.tagline }}</p>
+      </div>
+      <div>
+        <h2>Contatti</h2>
+        <address style="font-style: normal;">
+          <p>{{ site.address.streetAddress }}, {{ site.address.zona }} – {{ site.address.addressLocality }}</p>
+          <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+          <p>{{ site.phone }}</p>
+        </address>
+      </div>
+      <div>
+        <h2>Seguici</h2>
+        <ul>
+          <li><a href="{{ site.social.instagram }}" rel="me noopener" target="_blank">Instagram</a></li>
+          {% if site.googleBusinessUrl %}
+          <li><a href="{{ site.googleBusinessUrl }}" rel="noopener" target="_blank">Google Business</a></li>
+          {% endif %}
+          <li><a href="/feed.xml">Feed RSS del Diario</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__base">
+      <p>&copy; {{ anno }} SpazioxMe · Segesta, Milano</p>
+      <div class="footer__legali">
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/cookie-policy/">Cookie Policy</a>
+        <a href="/crediti/">Crediti immagini</a>
+      </div>
+    </div>
+  </div>
+</footer>

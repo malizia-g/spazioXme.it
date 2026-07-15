@@ -1,0 +1,8 @@
+{% from "partials/icons.njk" import icona %}
+<a class="card-pratica" href="/pratiche/{{ pratica.slug }}/">
+  <span class="card-pratica__icona">{{ icona(pratica.icona) }}</span>
+  <p class="card-pratica__sottotitolo">{{ pratica.sottotitolo }}</p>
+  <h3>{{ pratica.titolo }}</h3>
+  <p>{{ pratica.descrizione | truncate(110) }}</p>
+  <span class="card-pratica__link">Scopri di più →</span>
+</a>

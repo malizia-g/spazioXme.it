@@ -1,0 +1,27 @@
+<header class="header">
+  <div class="container header__inner">
+    <a href="/" class="header__logo">Spazio<span>x</span>Me</a>
+    <button
+      type="button"
+      class="header__toggle"
+      id="menu-toggle"
+      aria-expanded="false"
+      aria-controls="menu-principale"
+    >
+      <span class="header__toggle-icon" aria-hidden="true"></span>
+      <span>Menu</span>
+    </button>
+    <nav class="nav" id="menu-principale" aria-label="Menu principale">
+      <ul class="nav__lista">
+        {% for voce in nav %}
+        <li>
+          <a
+            href="{{ voce.url }}"
+            {% if page.url == voce.url %}aria-current="page"{% endif %}
+          >{{ voce.text }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

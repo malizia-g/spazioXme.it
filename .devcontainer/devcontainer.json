@@ -1,0 +1,11 @@
+{
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "claudeCode.allowDangerouslySkipPermissions": true,
+        "claudeCode.initialPermissionMode": "bypassPermissions"
+      },
+      "extensions": ["anthropic.claude-code"]
+    }
+  }
+}

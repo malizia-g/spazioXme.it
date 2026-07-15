@@ -1,0 +1,94 @@
+---
+layout: layouts/page.njk
+title: "Collaborazioni"
+description: "Sei un facilitatore, insegnante, counselor o professionista del benessere? SpazioxMe cerca collaborazioni a Segesta, Milano. Scrivici."
+breadcrumb:
+  - text: Home
+    url: /
+  - text: Collaborazioni
+    url: /collaborazioni/
+---
+{% from "partials/icons.njk" import icona %}
+
+<section class="sezione container">
+  <div class="sezione__intestazione">
+    <h1>Collaborazioni</h1>
+    <p>
+      SpazioxMe è un luogo vivo, che cresce grazie alle persone che lo attraversano. Se sei un
+      facilitatore, un insegnante, un counselor o un professionista del benessere e cerchi uno
+      spazio accogliente dove proporre le tue pratiche — o vuoi unire le forze per un progetto —
+      ci farebbe piacere conoscerti.
+    </p>
+  </div>
+
+  <div class="griglia griglia--2">
+    <div>
+      <h2>Cosa offriamo</h2>
+      <ul style="list-style:revert;padding-left:1.5rem">
+        <li>Uno spazio curato a Segesta per lezioni, gruppi e sessioni.</li>
+        <li>Una comunità attiva di persone interessate al benessere.</li>
+        <li>Collaborazione su eventi e percorsi condivisi.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>A chi è rivolto</h2>
+      <ul style="list-style:revert;padding-left:1.5rem">
+        <li>Insegnanti di yoga e pilates.</li>
+        <li>Counselor e facilitatori.</li>
+        <li>Operatori olistici.</li>
+        <li>Conduttori di gruppi e cerchi.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sezione sezione--alt">
+  <div class="container">
+    <div class="sezione__intestazione">
+      <h2>Come proporre una collaborazione</h2>
+      <p>Scrivici raccontandoci chi sei, cosa proponi e come immagini di collaborare.</p>
+    </div>
+
+    <form
+      class="form"
+      name="collaborazioni"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      action="/grazie/"
+    >
+      <input type="hidden" name="form-name" value="collaborazioni">
+      <p class="honeypot" aria-hidden="true">
+        <label>Non compilare questo campo: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+      </p>
+
+      <div class="campo">
+        <label for="c-nome">Nome e cognome</label>
+        <input type="text" id="c-nome" name="nome" required autocomplete="name">
+      </div>
+      <div class="campo">
+        <label for="c-email">Email</label>
+        <input type="email" id="c-email" name="email" required autocomplete="email">
+      </div>
+      <div class="campo">
+        <label for="c-ambito">Disciplina / Ambito</label>
+        <input type="text" id="c-ambito" name="ambito" required placeholder="Es. yoga, counseling, operatore olistico…">
+      </div>
+      <div class="campo">
+        <label for="c-messaggio">Messaggio</label>
+        <textarea id="c-messaggio" name="messaggio" required aria-describedby="c-msg-aiuto"></textarea>
+        <span id="c-msg-aiuto" class="campo__errore" style="color:var(--colore-testo)">Raccontaci chi sei e cosa proponi.</span>
+      </div>
+      <div class="campo campo-consenso">
+        <input type="checkbox" id="c-consenso" name="consenso-privacy" required>
+        <label for="c-consenso">
+          Ho letto la <a href="/privacy/">Privacy Policy</a> e acconsento al trattamento dei
+          miei dati per rispondere alla mia richiesta.
+        </label>
+      </div>
+      <div>
+        <button type="submit" class="bottone bottone--primario">Invia la proposta</button>
+      </div>
+    </form>
+  </div>
+</section>

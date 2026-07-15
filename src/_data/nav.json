@@ -1,0 +1,8 @@
+[
+  { "text": "Home", "url": "/" },
+  { "text": "Lo Spazio", "url": "/lo-spazio/" },
+  { "text": "Pratiche & Percorsi", "url": "/pratiche/" },
+  { "text": "Diario", "url": "/diario/" },
+  { "text": "Collaborazioni", "url": "/collaborazioni/" },
+  { "text": "Contatti", "url": "/contatti/" }
+]

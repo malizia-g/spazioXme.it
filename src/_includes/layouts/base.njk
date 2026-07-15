@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% include "partials/head-seo.njk" %}
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenuto">Vai al contenuto</a>
+
+  {% include "partials/header.njk" %}
+
+  <main id="contenuto">
+    {{ content | safe }}
+  </main>
+
+  {% include "partials/footer.njk" %}
+
+  {% include "partials/cookie-banner.njk" %}
+
+  <script src="/assets/js/menu.js" defer></script>
+  <script src="/assets/js/consent.js" defer></script>
+</body>
+</html>

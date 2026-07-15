@@ -1,0 +1,12 @@
+{
+  "layout": "layouts/post.njk",
+  "ogType": "article",
+  "permalink": "/diario/{{ page.fileSlug }}/",
+  "eleventyComputed": {
+    "breadcrumb": [
+      { "text": "Home", "url": "/" },
+      { "text": "Diario", "url": "/diario/" },
+      { "text": "{{ title }}", "url": "{{ page.url }}" }
+    ]
+  }
+}

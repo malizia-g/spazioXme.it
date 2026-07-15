@@ -1,0 +1,30 @@
+{
+  "name": "SpazioxMe",
+  "shortName": "SpazioxMe",
+  "url": "https://www.spazioxme.it",
+  "lang": "it",
+  "description": "SpazioxMe è uno spazio di crescita personale a Segesta, Milano: yoga, meditazione e respirazione, pilates e movimento consapevole, respirazione olotropica, counseling gestalt e cerchi di gruppo.",
+  "tagline": "Uno spazio per te.",
+  "address": {
+    "streetAddress": "[via e numero da confermare]",
+    "addressLocality": "Milano",
+    "addressRegion": "MI",
+    "postalCode": "[CAP da confermare]",
+    "addressCountry": "IT",
+    "zona": "Segesta"
+  },
+  "email": "info@spazioxme.it",
+  "phone": "[telefono/WhatsApp da confermare]",
+  "geo": {
+    "latitude": 45.475269,
+    "longitude": 9.1393808
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/spazioxme"
+  },
+  "googleBusinessUrl": "",
+  "openingHours": [
+    "[giorni e orari da confermare]"
+  ],
+  "priceRange": "€€"
+}

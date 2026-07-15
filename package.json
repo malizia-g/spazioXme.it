@@ -1,0 +1,24 @@
+{
+  "name": "spazioxme",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sito web statico di SpazioxMe, generato con Eleventy (11ty).",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "clean": "rimraf dist"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-img": "^5.0.0",
+    "@11ty/eleventy-navigation": "^1.0.3",
+    "@11ty/eleventy-plugin-rss": "^2.0.2",
+    "html-minifier-terser": "^7.2.0",
+    "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^9.2.0",
+    "rimraf": "^6.0.1"
+  }
+}

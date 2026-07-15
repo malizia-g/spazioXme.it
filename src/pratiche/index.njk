@@ -1,0 +1,27 @@
+---
+layout: layouts/page.njk
+title: "Pratiche & Percorsi"
+description: "Yoga, meditazione, pilates, respirazione olotropica, counseling gestalt e cerchi di gruppo a Segesta, Milano. Trova la pratica giusta per te."
+image: "/assets/images/pratica-yoga.jpg"
+imageAlt: "Pratica di yoga a SpazioxMe"
+breadcrumb:
+  - text: Home
+    url: /
+  - text: Pratiche & Percorsi
+    url: /pratiche/
+---
+<section class="sezione container">
+  <div class="sezione__intestazione">
+    <h1>Pratiche &amp; Percorsi</h1>
+    <p>
+      Ogni persona ha il suo ritmo e il suo modo di prendersi cura di sé. Per questo proponiamo
+      pratiche diverse, che si possono vivere singolarmente o intrecciare tra loro. Se non sai da
+      dove iniziare, scrivici: troviamo insieme il punto di partenza giusto per te.
+    </p>
+  </div>
+  <div class="griglia griglia--3">
+    {% for pratica in pratiche | sort(attribute="ordine") %}
+    {% include "partials/practice-card.njk" %}
+    {% endfor %}
+  </div>
+</section>

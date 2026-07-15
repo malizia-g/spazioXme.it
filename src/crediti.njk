@@ -1,0 +1,52 @@
+---
+layout: layouts/page.njk
+title: "Crediti immagini"
+description: "Attribuzioni delle immagini utilizzate temporaneamente sul sito di SpazioxMe, con autore e licenza."
+noindex: true
+breadcrumb:
+  - text: Home
+    url: /
+  - text: Crediti immagini
+    url: /crediti/
+---
+<section class="sezione container">
+  <div class="articolo__corpo" style="margin-inline:0;max-width:60rem">
+    <h1>Crediti immagini</h1>
+    <p>
+      Le fotografie attualmente visibili sul sito sono <strong>immagini stock temporanee</strong>
+      di provenienza libera (Wikimedia Commons), in attesa delle foto reali dello spazio. Nessuna
+      di esse ritrae SpazioxMe, il suo staff o i suoi conduttori.
+    </p>
+    <p>
+      Le immagini con licenza <strong>CC BY</strong> e <strong>CC BY-SA</strong> sono riportate
+      con l'attribuzione richiesta (autore e licenza). Le immagini <strong>CC0</strong> e di
+      <strong>pubblico dominio</strong> non richiederebbero attribuzione, ma la indichiamo comunque.
+    </p>
+
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:var(--fs-sm)">
+        <thead>
+          <tr style="text-align:left;border-bottom:2px solid var(--colore-bordo)">
+            <th style="padding:.5rem">Immagine</th>
+            <th style="padding:.5rem">Autore</th>
+            <th style="padding:.5rem">Licenza</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for c in crediti %}
+          <tr style="border-bottom:1px solid var(--colore-bordo)">
+            <td style="padding:.5rem"><a href="{{ c.pagina }}" rel="noopener" target="_blank">{{ c.titolo }}</a></td>
+            <td style="padding:.5rem">{{ c.autore }}</td>
+            <td style="padding:.5rem"><a href="{{ c.licenzaUrl }}" rel="noopener license" target="_blank">{{ c.licenza }}</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:var(--spazio-md)">
+      L'immagine di anteprima per la condivisione social (<code>og-default.jpg</code>) è un
+      ritaglio di <em>Zolder Yoga Trainingscentrum Michi</em> di Eelco van Wieringen (CC BY-SA 4.0).
+    </p>
+  </div>
+</section>

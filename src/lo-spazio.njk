@@ -1,0 +1,107 @@
+---
+layout: layouts/page.njk
+title: "Lo Spazio"
+description: "SpazioxMe è un luogo dove sentirsi a casa, a Segesta, a Milano. Piccoli gruppi, tempi umani e un ascolto autentico per il tuo benessere."
+image: "/assets/images/area-meditazione.jpg"
+imageAlt: "Area meditazione di SpazioxMe con tatami e cuscini"
+breadcrumb:
+  - text: Home
+    url: /
+  - text: Lo Spazio
+    url: /lo-spazio/
+---
+{% from "partials/icons.njk" import icona %}
+
+<section class="sezione container">
+  <div class="sezione__intestazione">
+    <h1>Lo Spazio</h1>
+  </div>
+  <div class="articolo__corpo" style="margin-inline:0">
+    <p>
+      SpazioxMe è, prima di tutto, un luogo dove sentirsi a casa. Si trova a Segesta, a Milano,
+      e ha alle spalle una lunga storia di crescita personale: un percorso fatto di persone,
+      incontri e cambiamenti. Dal 2024 nuove anime lo hanno riacceso, portando energie fresche
+      e nuove pratiche, senza dimenticare da dove veniamo.
+    </p>
+    <p>
+      Crediamo che il benessere non sia una prestazione, ma un modo di stare: con il proprio
+      corpo, con il respiro, con gli altri. Per questo qui trovi gruppi piccoli, tempi umani e
+      un ascolto autentico. Che tu venga per lo yoga, per un cerchio, per un percorso di
+      counseling o semplicemente per curiosità, lo spazio è pensato per accoglierti.
+    </p>
+    <p>
+      Non serve essere "bravi", allenati o esperti. Serve solo la voglia di concederti un
+      momento per te.
+    </p>
+  </div>
+</section>
+
+<section class="sezione sezione--alt">
+  <div class="container">
+    <div class="sezione__intestazione">
+      <h2>I nostri valori</h2>
+    </div>
+    <div class="valori">
+      <div class="valore">
+        <span class="valore__icona">{{ icona("accoglienza") }}</span>
+        <h3>Accoglienza</h3>
+        <p>Uno spazio che ti accoglie senza giudizio, dove puoi essere te stesso.</p>
+      </div>
+      <div class="valore">
+        <span class="valore__icona">{{ icona("autenticita") }}</span>
+        <h3>Autenticità</h3>
+        <p>Relazioni vere e parole sincere, senza maschere da indossare.</p>
+      </div>
+      <div class="valore">
+        <span class="valore__icona">{{ icona("corpo-presenza") }}</span>
+        <h3>Corpo e respiro</h3>
+        <p>Il corpo e il respiro come vie per tornare al presente e a sé.</p>
+      </div>
+      <div class="valore">
+        <span class="valore__icona">{{ icona("comunita") }}</span>
+        <h3>Comunità</h3>
+        <p>La forza dei piccoli gruppi e del cammino condiviso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sezione container">
+  <div class="sezione__intestazione">
+    <h2>I conduttori</h2>
+    <p>Le persone che animano lo spazio. Le schede complete arriveranno con foto e presentazioni reali.</p>
+  </div>
+  <div class="griglia griglia--3">
+    {% for i in range(0, 3) %}
+    <div class="scheda-conduttore">
+      <div class="scheda-conduttore__foto">
+        <img src="/assets/images/conduttore-placeholder.svg" alt="" width="128" height="128" loading="lazy">
+      </div>
+      <h3>[Nome conduttore]</h3>
+      <p class="scheda-conduttore__disciplina">[Disciplina]</p>
+      <p>[2–3 frasi di presentazione del conduttore, in attesa dei testi definitivi forniti dal committente.]</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="sezione sezione--alt">
+  <div class="container">
+    <div class="sezione__intestazione">
+      <h2>Il luogo</h2>
+      <p>
+        Ci trovi a <strong>[via e numero]</strong>, a Segesta, a Milano. Uno spazio caldo e
+        raccolto, facile da raggiungere <strong>[indicazioni: metro Segesta M1, mezzi, parcheggio]</strong>.
+      </p>
+    </div>
+    <div class="galleria">
+      {% immagine "/assets/images/sala-principale.jpg", "Sala luminosa di SpazioxMe con pavimento in legno e grandi finestre", "(min-width: 640px) 22rem, 50vw", [400, 800] %}
+      {% immagine "/assets/images/area-meditazione.jpg", "Area meditazione con tatami e cuscini", "(min-width: 640px) 22rem, 50vw", [400, 800] %}
+      {% immagine "/assets/images/angolo-relax.jpg", "Angolo relax con divani bassi e cuscini colorati", "(min-width: 640px) 22rem, 50vw", [400, 800] %}
+      {% immagine "/assets/images/dettaglio-piante-libreria.jpg", "Dettaglio con piante e libreria", "(min-width: 640px) 22rem, 50vw", [400, 800] %}
+      {% immagine "/assets/images/vetrata-decori.jpg", "Vetrata decorata che filtra la luce naturale", "(min-width: 640px) 22rem, 50vw", [400, 800] %}
+      {% immagine "/assets/images/ingresso.jpg", "Ingresso dello spazio in un edificio d'epoca milanese", "(min-width: 640px) 22rem, 50vw", [400, 800] %}
+    </div>
+    <p class="nota-stock">Foto stock temporanee, in attesa delle foto reali dello spazio.</p>
+  </div>
+</section>

@@ -1,0 +1,5 @@
+# Redirect dall'apex al www (URL canonico coerente con site.json)
+https://spazioxme.it/*  https://www.spazioxme.it/:splat  301!
+
+# Fallback 404 (Netlify serve comunque 404.html automaticamente)
+/*  /404.html  404

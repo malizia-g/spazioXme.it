@@ -1,0 +1,45 @@
+name: Build 11ty e deploy
+
+# Ad ogni push su "staging" builda il sito con Eleventy e pubblica il contenuto
+# di dist/ sul branch "deploy" (che contiene solo l'output statico pronto per l'hosting).
+on:
+  push:
+    branches: [staging]
+  workflow_dispatch:
+
+# Serve il permesso di scrittura per aggiornare il branch "deploy".
+permissions:
+  contents: write
+
+concurrency:
+  group: build-deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Installa dipendenze
+        run: npm ci
+
+      - name: Build del sito
+        run: npm run build
+        env:
+          ELEVENTY_RUN_MODE: build
+
+      - name: Pubblica dist/ sul branch deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: deploy
+          folder: dist
+          clean: true
+          commit-message: "Deploy: build da ${{ github.sha }}"

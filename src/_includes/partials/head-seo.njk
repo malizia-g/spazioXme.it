@@ -1,0 +1,85 @@
+{%- set titoloPagina = title or site.name -%}
+{%- set titoloCompleto = (title + " · " + site.shortName) if title else (site.name + " — " + site.tagline) -%}
+{%- set descrizionePagina = description or site.description -%}
+{%- set urlCanonico = site.url + page.url -%}
+{# Immagine OG condivisa a dimensione corretta (1200x630). Le foto di contenuto usano la
+   pipeline responsive; per la condivisione social usiamo un'immagine leggera e uniforme,
+   sovrascrivibile per pagina con il campo "ogImage". #}
+{%- set immagineOg = site.url + (ogImage or "/assets/images/og-default.jpg") -%}
+
+<title>{{ titoloCompleto }}</title>
+<meta name="description" content="{{ descrizionePagina }}">
+{% if noindex %}<meta name="robots" content="noindex, follow">{% endif %}
+<link rel="canonical" href="{{ urlCanonico }}">
+
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+
+<link rel="preload" href="/assets/fonts/nunito-sans-variable.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="alternate" type="application/rss+xml" title="{{ site.name }} — Diario" href="{{ site.url }}/feed.xml">
+
+<meta property="og:type" content="{{ ogType or 'website' }}">
+<meta property="og:title" content="{{ titoloPagina }}">
+<meta property="og:description" content="{{ descrizionePagina }}">
+<meta property="og:url" content="{{ urlCanonico }}">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:locale" content="it_IT">
+<meta property="og:image" content="{{ immagineOg }}">
+{% if imageAlt %}<meta property="og:image:alt" content="{{ imageAlt }}">{% endif %}
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ titoloPagina }}">
+<meta name="twitter:description" content="{{ descrizionePagina }}">
+<meta name="twitter:image" content="{{ immagineOg }}">
+
+{% if ogType == "article" %}
+<meta property="article:published_time" content="{{ (datePublished or page.date) | dataIso }}">
+<meta property="article:modified_time" content="{{ (dateModified or datePublished or page.date) | dataIso }}">
+{% endif %}
+
+{# JSON-LD: LocalBusiness su tutte le pagine #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HealthClub",
+  "@id": "{{ site.url }}/#business",
+  "name": "{{ site.name }}",
+  "image": "{{ site.url }}/assets/images/og-default.jpg",
+  "url": "{{ site.url }}",
+  "telephone": "{{ site.phone }}",
+  "priceRange": "{{ site.priceRange }}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{ site.address.streetAddress }}",
+    "addressLocality": "{{ site.address.addressLocality }}",
+    "addressRegion": "{{ site.address.addressRegion }}",
+    "postalCode": "{{ site.address.postalCode }}",
+    "addressCountry": "{{ site.address.addressCountry }}"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": {{ site.geo.latitude }},
+    "longitude": {{ site.geo.longitude }}
+  },
+  "sameAs": ["{{ site.social.instagram }}"]
+}
+</script>
+
+{% if breadcrumb %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {% for voce in breadcrumb %}
+    {
+      "@type": "ListItem",
+      "position": {{ loop.index }},
+      "name": "{{ voce.text }}",
+      "item": "{{ site.url }}{{ voce.url }}"
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}

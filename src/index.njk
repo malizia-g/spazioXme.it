@@ -1,0 +1,119 @@
+---
+layout: layouts/base.njk
+title: "Yoga, meditazione e benessere a Segesta, Milano"
+description: "SpazioxMe è uno spazio di crescita personale a Segesta, Milano: yoga, meditazione, pilates, respirazione olotropica, counseling gestalt e cerchi di gruppo."
+image: "/assets/images/sala-principale.jpg"
+imageAlt: "Sala luminosa di SpazioxMe con pavimento in legno e grandi finestre"
+---
+{% from "partials/icons.njk" import icona %}
+
+<section class="hero">
+  <div class="hero__sfondo">
+    {% immagine "/assets/images/sala-principale.jpg", "", "100vw", [800, 1200, 2000], true %}
+  </div>
+  <div class="container hero__contenuto">
+    <h1>Uno spazio per te.</h1>
+    <p>
+      A Segesta, a Milano, un luogo accogliente dove ritrovare corpo, respiro e presenza.
+      Yoga, meditazione, movimento, respirazione olotropica e counseling gestalt: percorsi
+      per prenderti cura di te, al tuo ritmo.
+    </p>
+    <div class="gruppo-bottoni">
+      <a class="bottone bottone--primario" href="/pratiche/">Scopri le pratiche</a>
+      <a class="bottone bottone--secondario" style="border-color:#fff;color:#fff" href="/contatti/">Scrivici</a>
+    </div>
+  </div>
+</section>
+
+<section class="sezione container">
+  <div class="sezione__intestazione">
+    <h2>Chi siamo</h2>
+    <p>
+      SpazioxMe nasce da una lunga storia di crescita personale e, dal 2024, da nuove anime che
+      l'hanno riportato a vivere. È un posto pensato per stare bene insieme: piccoli gruppi,
+      ascolto autentico e la libertà di essere sé stessi. Nessuna prestazione da raggiungere,
+      solo lo spazio per ritrovarti.
+    </p>
+  </div>
+  <a class="bottone bottone--secondario" href="/lo-spazio/">Conosci lo spazio</a>
+</section>
+
+<section class="sezione sezione--alt">
+  <div class="container">
+    <div class="sezione__intestazione">
+      <h2>Pratiche &amp; Percorsi</h2>
+      <p>Ogni persona ha il suo ritmo. Scegli la pratica che ti chiama, o vieni a scoprirle tutte.</p>
+    </div>
+    <div class="griglia griglia--3">
+      {% for pratica in pratiche | sort(attribute="ordine") %}
+      {% include "partials/practice-card.njk" %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="sezione container">
+  <div class="sezione__intestazione testo-centrato">
+    <h2>I nostri valori</h2>
+  </div>
+  <div class="valori">
+    <div class="valore">
+      <span class="valore__icona">{{ icona("accoglienza") }}</span>
+      <h3>Accoglienza</h3>
+      <p>Ti accogliamo così come sei, senza giudizio e senza fretta.</p>
+    </div>
+    <div class="valore">
+      <span class="valore__icona">{{ icona("ascolto") }}</span>
+      <h3>Ascolto</h3>
+      <p>Un ascolto autentico, per te e per chi condivide lo spazio con te.</p>
+    </div>
+    <div class="valore">
+      <span class="valore__icona">{{ icona("corpo-presenza") }}</span>
+      <h3>Corpo e presenza</h3>
+      <p>Il corpo e il respiro come strada per tornare al presente.</p>
+    </div>
+    <div class="valore">
+      <span class="valore__icona">{{ icona("comunita") }}</span>
+      <h3>Comunità</h3>
+      <p>Piccoli gruppi, tempi umani, relazioni vere.</p>
+    </div>
+  </div>
+</section>
+
+{% set ultimiArticoli = collections.diario | slice(0, 3) %}
+{% if collections.diario.length %}
+<section class="sezione sezione--alt">
+  <div class="container">
+    <div class="sezione__intestazione">
+      <h2>Dal Diario</h2>
+      <p>Pensieri, pratiche e racconti dallo SpazioxMe.</p>
+    </div>
+    <div class="griglia griglia--3">
+      {% for articolo in collections.diario | slice(0, 3) %}
+      <article class="card-articolo">
+        {% if articolo.data.image %}
+        <div class="card-articolo__immagine">
+          {% immagine articolo.data.image, articolo.data.imageAlt or "", "(min-width: 860px) 22rem, 100vw", [400, 800] %}
+        </div>
+        {% endif %}
+        <div class="card-articolo__corpo">
+          <time datetime="{{ articolo.date | dataIso }}">{{ articolo.date | dataIt }}</time>
+          <h3><a href="{{ articolo.url }}">{{ articolo.data.title }}</a></h3>
+          <p>{{ articolo.data.description }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    <p class="mt-lg"><a href="/diario/">Leggi tutti gli articoli →</a></p>
+  </div>
+</section>
+{% endif %}
+
+<section class="sezione container testo-centrato">
+  <h2>Curioso di iniziare?</h2>
+  <p class="testo-centrato">
+    Il primo passo è una chiacchierata, senza impegno. Scrivici e troviamo insieme la pratica
+    giusta per te.
+  </p>
+  <a class="bottone bottone--primario" href="/contatti/">Contattaci</a>
+</section>

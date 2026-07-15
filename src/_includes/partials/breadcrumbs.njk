@@ -1,0 +1,15 @@
+{% if breadcrumb %}
+<nav class="breadcrumb container" aria-label="Breadcrumb">
+  <ol>
+    {% for voce in breadcrumb %}
+    <li>
+      {% if loop.last %}
+      <span aria-current="page">{{ voce.text }}</span>
+      {% else %}
+      <a href="{{ voce.url }}">{{ voce.text }}</a>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ol>
+</nav>
+{% endif %}

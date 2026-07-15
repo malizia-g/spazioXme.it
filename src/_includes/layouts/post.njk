@@ -1,0 +1,53 @@
+---
+layout: layouts/base.njk
+---
+{% include "partials/breadcrumbs.njk" %}
+<article class="container sezione">
+  <header class="articolo__intestazione">
+    <p class="articolo__meta">
+      <time datetime="{{ page.date | dataIso }}">{{ page.date | dataIt }}</time>
+      · {{ content | tempoLettura }} min di lettura
+    </p>
+    <h1>{{ title }}</h1>
+    {% if description %}<p>{{ description }}</p>{% endif %}
+  </header>
+
+  {% if image %}
+  <div class="articolo__immagine">
+    {% immagine image, imageAlt or "", "(min-width: 768px) 46rem, 100vw", [480, 800, 1200], true %}
+  </div>
+  {% endif %}
+
+  <div class="articolo__corpo">
+    {{ content | safe }}
+  </div>
+
+  <p class="mt-lg">
+    <a href="/diario/">← Torna al Diario</a>
+  </p>
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ title }}",
+  "description": "{{ description }}",
+  "datePublished": "{{ page.date | dataIso }}",
+  "dateModified": "{{ page.date | dataIso }}",
+  "image": "{{ site.url }}/assets/images/og-default.jpg",
+  "author": {
+    "@type": "Organization",
+    "name": "{{ site.name }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.name }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}/assets/images/favicon.svg"
+    }
+  },
+  "mainEntityOfPage": "{{ site.url }}{{ page.url }}"
+}
+</script>
