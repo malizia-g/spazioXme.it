@@ -443,6 +443,7 @@ main a:not(.bottone):not(.card-pratica):not(.header__logo):hover {
 
 .valore {
   padding: var(--spazio-md);
+  text-align: center;
 }
 
 .valore__icona {
