@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /grazie/
+
+Sitemap: https://www.spazioxme.it/sitemap.xml
