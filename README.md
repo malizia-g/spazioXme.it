@@ -102,10 +102,12 @@ Modifica `src/_data/pratiche.json`. Ogni oggetto dell'array genera automaticamen
 
 ## Immagini
 
-Le immagini attualmente presenti sono **foto stock temporanee con licenza libera**
-(vedi `CREDITS-IMMAGINI.md` per le attribuzioni). **Vanno sostituite con le foto reali
-dello spazio** fornite dal committente, mantenendo gli stessi nomi file in
-`src/assets/images/`.
+Le immagini presenti sono **foto reali dello spazio** (proprietà di SpazioxMe). Gli
+originali ad alta risoluzione sono archiviati e organizzati per tema nella cartella
+`SpazioXME/` (`ambienti/`, `meditazione-e-cerchi/`, `dettagli/`); vedi
+`CREDITS-IMMAGINI.md` per la corrispondenza tra ogni file del sito e la foto sorgente.
+Per aggiornare una foto, sostituisci il file in `src/assets/images/` mantenendo lo
+stesso nome.
 
 La pipeline `@11ty/eleventy-img` genera automaticamente in build le versioni AVIF/WebP/JPEG
 e le larghezze responsive: basta fornire l'originale ad alta risoluzione (lato lungo ≥ 2000px
@@ -176,7 +178,7 @@ Cerca nel codice le stringhe tra parentesi quadre `[...]`. Da fornire/aggiornare
 - **Contatti** (`contatti.njk`): indirizzo e orari.
 - **Legali** (`privacy.njk`, `cookie-policy.njk`): titolare del trattamento, dati raccolti,
   finalità, strumenti di terze parti, periodo di conservazione, data di aggiornamento.
-- **Immagini**: sostituire le foto stock con quelle reali (stessi nomi file).
+- **Immagini**: foto reali dello spazio già in uso; per aggiornarle sostituire i file in `src/assets/images/` (stessi nomi).
 - **Logo**: se disponibile in SVG, sostituire il logo testuale nell'header.
 
 ---

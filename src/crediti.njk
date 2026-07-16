@@ -1,7 +1,7 @@
 ---
 layout: layouts/page.njk
 title: "Crediti immagini"
-description: "Attribuzioni delle immagini utilizzate temporaneamente sul sito di SpazioxMe, con autore e licenza."
+description: "Informazioni sulle fotografie utilizzate sul sito di SpazioxMe."
 noindex: true
 breadcrumb:
   - text: Home
@@ -13,16 +13,15 @@ breadcrumb:
   <div class="articolo__corpo" style="margin-inline:0;max-width:60rem">
     <h1>Crediti immagini</h1>
     <p>
-      Le fotografie attualmente visibili sul sito sono <strong>immagini stock temporanee</strong>
-      di provenienza libera (Wikimedia Commons), in attesa delle foto reali dello spazio. Nessuna
-      di esse ritrae SpazioxMe, il suo staff o i suoi conduttori.
+      Le fotografie pubblicate sul sito sono <strong>immagini originali di SpazioxMe</strong> e
+      ritraggono gli ambienti reali dello spazio: la sala principale, l'area meditazione, gli
+      angoli relax e i dettagli che lo rendono un luogo accogliente.
     </p>
     <p>
-      Le immagini con licenza <strong>CC BY</strong> e <strong>CC BY-SA</strong> sono riportate
-      con l'attribuzione richiesta (autore e licenza). Le immagini <strong>CC0</strong> e di
-      <strong>pubblico dominio</strong> non richiederebbero attribuzione, ma la indichiamo comunque.
+      Tutte le foto sono di proprietà di SpazioxMe. Per riutilizzarle, anche parziale, scrivici
+      dalla <a href="/contatti/">pagina contatti</a>.
     </p>
-
+    {% if crediti and crediti.length %}
     <div style="overflow-x:auto">
       <table style="width:100%;border-collapse:collapse;font-size:var(--fs-sm)">
         <thead>
@@ -43,10 +42,6 @@ breadcrumb:
         </tbody>
       </table>
     </div>
-
-    <p style="margin-top:var(--spazio-md)">
-      L'immagine di anteprima per la condivisione social (<code>og-default.jpg</code>) è un
-      ritaglio di <em>Zolder Yoga Trainingscentrum Michi</em> di Eelco van Wieringen (CC BY-SA 4.0).
-    </p>
+    {% endif %}
   </div>
 </section>
